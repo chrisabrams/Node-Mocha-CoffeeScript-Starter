@@ -1,0 +1,21 @@
+{
+  "author": "Chris Abrams",
+  "name": "node-mocha-coffeescript-starter",
+  "title": "Node Mocha Coffeescript Starter",
+  "description": "A simple example to test CoffeeScript server-side with Node.js and Mocha.",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+
+  "devDependencies": {
+    "coffee-script": "1.6.2",
+    "expect.js": "0.2.0",
+    "mocha": "1.8.2"
+  }
+}
