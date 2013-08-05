@@ -2,7 +2,7 @@
 A simple example to test CoffeeScript server-side with Node.js and Mocha. Uses Chai and Expect.js.
 
 ## Getting Started
-You will need Node.js to begin. Then:
+You will need Node.js and CoffeeScript to begin. Then:
 
     npm install
 
