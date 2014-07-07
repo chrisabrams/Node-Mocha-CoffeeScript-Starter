@@ -26,13 +26,15 @@ class FinalCState extends CState
     @initialState = false
     @finalState = true
   exit: () ->
-    throw new Error
+    throw new Error('E_EXIT')
   
 class InitialCState extends CState
   constructor: () ->
     super()
     @initialState = true
     @finalState = false
+  enter: () ->
+    throw new Error('E_ENTER')
 
 module.exports.CState = CState
 module.exports.InitialCState = InitialCState

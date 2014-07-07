@@ -15,7 +15,7 @@ describe 'CState', ->
     state = new CState
     expect(state.isFinal()).to.be.false
     done()
-  it 'has a enter method', () ->
+  it 'has a enter and OnEnter Method', () ->
     state = new CState
     expect(state).to.respondTo 'enter'
     expect(state).to.respondTo 'onEnter'
@@ -51,7 +51,7 @@ describe 'Final CState', ->
     done()
   it 'should error on a call to .exit', (done) ->
     state = new FinalCState
-    expect(-> state.exit()).to.throw()
+    expect(-> state.exit()).to.throw('E_EXIT')
     done()
 
 describe 'Initial CState', ->
@@ -62,4 +62,8 @@ describe 'Initial CState', ->
   it 'should  be initial', (done) ->
     state = new InitialCState
     expect(state.isInitial()).to.be.true
+    done()
+  it 'should error on a call to .enter', (done) ->
+    state = new InitialCState
+    expect(-> state.enter()).to.throw('E_ENTER')
     done()
