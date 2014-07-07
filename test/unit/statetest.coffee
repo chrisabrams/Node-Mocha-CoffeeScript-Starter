@@ -19,11 +19,15 @@ describe 'CState', ->
     state = new CState
     expect(state).to.respondTo 'enter'
     expect(state).to.respondTo 'onEnter'
-  it 'sends a enter evt.vent', () ->
+  it 'sends a enter evt.vent', (done) ->
     state = new CState
-    state.onEnter (evt) =>
-      done()  
-    
+    foo = (bar) ->
+      done()
+    # use a event on enter so that others can listen to it
+    state.onEnter foo
+    # enter the state, test fails with a timeout if done is not called 
+    state.enter()
+
 describe 'Final CState', ->
   it 'should be final', (done) ->
     state = new FinalCState

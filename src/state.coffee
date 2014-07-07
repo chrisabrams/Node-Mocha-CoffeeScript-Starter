@@ -1,5 +1,8 @@
+{EventEmitter} = require 'events'
+
 class CState
   constructor: () ->
+    @emitter = new EventEmitter;
     @initialState = false
     @finalState = false;
   isFinal: ->
@@ -7,10 +10,9 @@ class CState
   isInitial: ->
     return @initialState
   enter: ->
-    true
-  onEnter:() ->
-    true
-
+    @emitter.emit('enter')
+  onEnter:(evt) ->
+    @emitter.addListener 'enter', evt
 
 class FinalCState extends CState
   constructor: () ->
