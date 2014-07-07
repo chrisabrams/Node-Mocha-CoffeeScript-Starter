@@ -6,6 +6,11 @@ class CState
     return @finalState
   isInitial: ->
     return @initialState
+  enter: ->
+    true
+  onEnter:() ->
+    true
+
 
 class FinalCState extends CState
   constructor: () ->
@@ -16,9 +21,6 @@ class InitialCState extends CState
   constructor: () ->
     @initialState = true
     @finalState = false
-
-
-
 
 module.exports.CState = CState
 module.exports.InitialCState = InitialCState

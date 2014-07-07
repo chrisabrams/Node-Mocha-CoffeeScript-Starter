@@ -15,7 +15,15 @@ describe 'CState', ->
     state = new CState
     expect(state.isFinal()).to.be.false
     done()
-
+  it 'has a enter method', () ->
+    state = new CState
+    expect(state).to.respondTo 'enter'
+    expect(state).to.respondTo 'onEnter'
+  it 'sends a enter evt.vent', () ->
+    state = new CState
+    state.onEnter (evt) =>
+      done()  
+    
 describe 'Final CState', ->
   it 'should be final', (done) ->
     state = new FinalCState
