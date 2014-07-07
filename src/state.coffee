@@ -1,6 +1,6 @@
 {EventEmitter} = require 'events'
 
-class CState
+class State
   constructor: () ->
     @emitter = new EventEmitter;
     @initialState = false
@@ -20,7 +20,7 @@ class CState
   addTransition: (transition) ->
     true
 
-class FinalCState extends CState
+class FinalState extends State
   constructor: () ->
     super()
     @initialState = false
@@ -28,7 +28,7 @@ class FinalCState extends CState
   exit: () ->
     throw new Error('E_EXIT')
   
-class InitialCState extends CState
+class InitialState extends State
   constructor: () ->
     super()
     @initialState = true
@@ -36,6 +36,6 @@ class InitialCState extends CState
   enter: () ->
     throw new Error('E_ENTER')
 
-module.exports.CState = CState
-module.exports.InitialCState = InitialCState
-module.exports.FinalCState = FinalCState
+module.exports.State = State
+module.exports.InitialState = InitialState
+module.exports.FinalState = FinalState
