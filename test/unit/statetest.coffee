@@ -73,6 +73,8 @@ describe 'putting it all together', ->
   it 'should execute the hello world case', ->
     s1 = new State
     s2 = new State
+    # done = new FinalState
+
     transition = new Transition
-    transition.setTargetState s2
+    expect(transition.setTargetState s2)to.be.true
 

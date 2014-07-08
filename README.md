@@ -1,4 +1,6 @@
-# Node, Mocha, CoffeeScript Starter
+# A simple finite state machine 
+Attempt to implement a finite state machine for node in coffeescript
+
 A simple example to test CoffeeScript server-side with Node.js and Mocha. Uses Chai and Expect.js.
 
 ## Getting Started
@@ -8,11 +10,11 @@ You will need Node.js and CoffeeScript to begin. Then:
 
 ## To run tests
 
+Used for testing: 
+
+* Node.js
+* Mocha
+* Chai
+* Expect.js.
+
     cake test
-
-## Test files
-
-### Adding files
-To add a new file to the test, place them in `test/unit` and name them `YOURFILENAME.coffee`. Mocha runs tests in alphabetical order of file name by default.
-
-To decide what/where files should be included in the test, edit `test/helper.coffee`

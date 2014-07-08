@@ -1,6 +1,19 @@
 {EventEmitter} = require 'events'
 
 class Transition
-  setTargetState: ->
+  setTargetState: (@targetState, @evaluate = ->) ->
+  evaluate: () ->
+  	if evaluate()
+  	  return @targetState
+  	else 
+  	  return false
+
+class StringTransition extends Transition
+  constructor: (@topic) ->
   
+  evaluate:(value) ->
+  	return value eq @topic
+
 module.exports.Transition = Transition
+module.exports.StringTransition = StringTransition
+
