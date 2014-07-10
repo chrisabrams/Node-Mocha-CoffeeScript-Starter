@@ -2,6 +2,7 @@
 
 class Transition
   setTargetState: (@targetState, @evaluate = ->) ->
+    true
   evaluate: () ->
   	if evaluate()
   	  return @targetState
@@ -16,4 +17,3 @@ class StringTransition extends Transition
 
 module.exports.Transition = Transition
 module.exports.StringTransition = StringTransition
-

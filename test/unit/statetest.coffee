@@ -76,5 +76,5 @@ describe 'putting it all together', ->
     # done = new FinalState
 
     transition = new Transition
-    expect(transition.setTargetState s2)to.be.true
+    expect(transition.setTargetState s2).to.be.true
 
