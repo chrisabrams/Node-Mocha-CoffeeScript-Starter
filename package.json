@@ -1,8 +1,7 @@
 {
-  "author": "Chris Abrams",
-  "name": "node-mocha-coffeescript-starter",
-  "title": "Node Mocha Coffeescript Starter",
-  "description": "A simple example to test CoffeeScript server-side with Node.js and Mocha.",
+  "author": "Sebastian Schürmann",
+  "name": "coffee-fsm",
+  "title": "finite state machine for node",
   "version": "0.0.1",
   "homepage": "",
   "repository": {

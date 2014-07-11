@@ -5,7 +5,7 @@ expect   = chai.expect
 {State, FinalState, InitialState} = require '../../src/state'
 {Transition, StringTransition} = require '../../src/transition'
 
-describe 'Transition',s ->
+describe 'Transition', (done) ->
   it 'should exist', (done) ->
     expect(Transition).to.be.a 'function'
     done()
@@ -15,8 +15,8 @@ describe 'Transition',s ->
 
   describe 'StringTransition', ->
     it 'should exist', (done) ->
-    expect(StringTransition).to.be.a 'function'
-    done()
-  it 'should create an instance', (done) ->
-    expect(new StringTransition).to.be.a 'object'
-    done()
+      expect(StringTransition).to.be.a 'function'
+      done()
+    it 'should create an instance', (done) ->
+      expect(new StringTransition).to.be.a 'object'
+      done()
