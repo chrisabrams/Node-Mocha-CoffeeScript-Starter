@@ -26,7 +26,7 @@ class FinalState extends State
     @initialState = false
     @finalState = true
   exit: () ->
-    throw new Error('E_EXIT')
+    throw new Error 'E_EXIT'
 
 class InitialState extends State
   constructor: () ->
@@ -34,7 +34,7 @@ class InitialState extends State
     @initialState = true
     @finalState = false
   enter: () ->
-    throw new Error('E_ENTER')
+    throw new Error 'E_ENTER'
 
 module.exports.State = State
 module.exports.InitialState = InitialState

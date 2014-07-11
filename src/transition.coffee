@@ -4,16 +4,16 @@ class Transition
   setTargetState: (@targetState, @evaluate = ->) ->
     true
   evaluate: () ->
-    if evaluate()
+    if @evaluate()
       return @targetState
     else
       return false
 
 class StringTransition extends Transition
-  constructor: (@topic) ->
+  constructor: (@string) ->
 
   evaluate:(value) ->
-    return value eq @topic
+    return value == @string
 
 module.exports.Transition = Transition
 module.exports.StringTransition = StringTransition

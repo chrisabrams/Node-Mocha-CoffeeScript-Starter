@@ -52,7 +52,7 @@ describe 'Final State', ->
     done()
   it 'should error on a call to .exit', (done) ->
     state = new FinalState
-    expect(-> state.exit()).to.throw('E_EXIT')
+    expect(-> state.exit()).to.throw 'E_EXIT'
     done()
 
 describe 'Initial State', ->
@@ -66,6 +66,6 @@ describe 'Initial State', ->
     done()
   it 'should error on a call to .enter', (done) ->
     state = new InitialState
-    expect(-> state.enter()).to.throw('E_ENTER')
+    expect(-> state.enter()).to.throw 'E_ENTER'
     done()
 
