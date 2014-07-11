@@ -1,13 +1,11 @@
 {EventEmitter} = require 'events'
 
 class Transition
-  setTargetState: (@targetState, @evaluate = ->) ->
+
+  setTargetState: (@targetState, @evl) ->
     true
-  evaluate: () ->
-    if @evaluate()
-      return @targetState
-    else
-      return false
+  evaluate: (cb) ->
+    return cb()
 
 class StringTransition extends Transition
   constructor: (@string) ->

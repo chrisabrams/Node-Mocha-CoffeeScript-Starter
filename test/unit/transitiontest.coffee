@@ -14,9 +14,15 @@ describe 'Transition', (done) ->
     done()
   it 'should not evaluate when not set up ', (done) ->
     t1 = new Transition
-    expect(t1.evaluate()).to.be.false
+    expect(t1.evaluate(-> return false)).to.be.false
     done()
 
+  it 'should  evaluate when  set up ', (done) ->
+    cb = ->
+      return true
+    t1 = new Transition
+    expect(t1.evaluate(-> true)).to.be.true
+    done()
 
   describe 'StringTransition', ->
     it 'should exist', (done) ->
@@ -33,3 +39,4 @@ describe 'Transition', (done) ->
       t1 = new StringTransition 'Hello'
       expect(t1.evaluate 'Foo').to.be.false
       done()
+
