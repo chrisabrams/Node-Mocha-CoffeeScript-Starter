@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script --reporter spec --require coffee-script --require test/helper.coffee --colors --growl test/unit/**.coffee"
-  }, 
+  },
   "engines": {
     "node": ">=0.8"
   },
@@ -20,6 +20,7 @@
     "coffee-script": "1.6.2",
     "event-emitter": "^0.3.1",
     "expect.js": "0.2.0",
+    "gulp-coffeelint": "^0.3.3",
     "mocha": "1.8.2"
   }
 }

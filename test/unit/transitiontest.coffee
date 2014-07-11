@@ -19,4 +19,4 @@ describe 'StringTransition', ->
   	done()
   it 'should create an instance', (done) ->
   	expect(new StringTransition).to.be.a 'object'
-  	done()	
+  	done()

@@ -69,12 +69,3 @@ describe 'Initial State', ->
     expect(-> state.enter()).to.throw('E_ENTER')
     done()
 
-describe 'putting it all together', ->
-  it 'should execute the hello world case', ->
-    s1 = new State
-    s2 = new State
-    # done = new FinalState
-
-    transition = new Transition
-    expect(transition.setTargetState s2).to.be.true
-
