@@ -9,6 +9,9 @@
     "type": "git",
     "url": ""
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script --reporter spec --require coffee-script --require test/helper.coffee --colors --growl test/unit/**.coffee"
+  }, 
   "engines": {
     "node": ">=0.8"
   },

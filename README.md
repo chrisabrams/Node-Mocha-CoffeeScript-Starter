@@ -1,7 +1,7 @@
 # A simple finite state machine 
 Attempt to implement a finite state machine for node in coffeescript
 
-A simple example to test CoffeeScript server-side with Node.js and Mocha. Uses Chai and Expect.js.
+[![Build Status](https://travis-ci.org/sebs/coffee-fsm.svg)](https://travis-ci.org/sebs/coffee-fsm)
 
 ## Getting Started
 You will need Node.js and CoffeeScript to begin. Then:
