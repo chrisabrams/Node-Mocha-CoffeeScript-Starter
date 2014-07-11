@@ -26,7 +26,7 @@ describe 'State', ->
       done()
     # use a event on enter so that others can listen to it
     state.onEnter cb
-    # enter the state, test fails with a timeout if done is not called 
+    # enter the state, test fails with a timeout if done is not called
     state.enter()
   it 'sends a exit evt', (done) ->
     state = new State
@@ -34,7 +34,7 @@ describe 'State', ->
       done()
     # use a event on enter so that others can listen to it
     state.onExit cb
-    # enter the state, test fails with a timeout if done is not called 
+    # enter the state, test fails with a timeout if done is not called
     state.exit()
   it 'adds a transition', ->
     state = new State

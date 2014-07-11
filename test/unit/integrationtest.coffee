@@ -9,7 +9,7 @@ expect   = chai.expect
 
 describe 'putting it all together', ->
   it 'should execute the hello world case', ->
-  	# two states 
+    # two states
     s1 = new State
     s2 = new State
     # and then a final one to quit
@@ -24,7 +24,7 @@ describe 'putting it all together', ->
     expect(s2.addTransition t2).to.be.true
     # et voila 'Hello -> world -> done()'
     machine = new Machine
-    machine.addState s1;
-    machine.addState s2;
-    machine.addState done;
-    machine.setInitialState s1;
+    machine.addState s1
+    machine.addState s2
+    machine.addState done
+    machine.setInitialState s1

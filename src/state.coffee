@@ -2,9 +2,9 @@
 
 class State
   constructor: () ->
-    @emitter = new EventEmitter;
+    @emitter = new EventEmitter
     @initialState = false
-    @finalState = false;
+    @finalState = false
   isFinal: ->
     return @finalState
   isInitial: ->
@@ -27,7 +27,7 @@ class FinalState extends State
     @finalState = true
   exit: () ->
     throw new Error('E_EXIT')
-  
+
 class InitialState extends State
   constructor: () ->
     super()
