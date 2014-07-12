@@ -3,12 +3,18 @@ Attempt to implement a finite state machine for node in coffeescript
 
 [![Build Status](https://travis-ci.org/sebs/coffee-fsm.svg)](https://travis-ci.org/sebs/coffee-fsm)
 
-## State
+## Example
 
-## Transition
-
-## State Machine
-
+```coffeescript
+s1 = new State
+s2 = new State
+t1 = new StringTransition 'Hello'
+t2 = new StringTransition 'world'
+machine = new Machine
+machine.addState s1
+machine.addState s2
+machine.addState done
+```
 
 # Installation, Development and Testing
 
