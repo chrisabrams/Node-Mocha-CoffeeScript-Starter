@@ -21,6 +21,7 @@
     "expect.js": "0.2.0",
     "gulp": "^3.8.6",
     "gulp-coffeelint": "^0.3.3",
+    "gulp-markdox": "^0.1.0",
     "mocha": "1.8.2"
   }
 }

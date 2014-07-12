@@ -3,8 +3,12 @@ chai     = require 'chai'
 expect   = chai.expect
 {Machine} = require '../../src/machine'
 
-
 describe 'Machine', ->
-  it 'should exist', (done) ->
-    expect(typeof Machine).to.equal 'function'
-    done()
+  it 'should instantiate', ->
+    machine = new Machine
+    expect(machine).to.be.a.object
+  it 'should run', ->
+    machine = new Machine
+    machine.run()
+
+
