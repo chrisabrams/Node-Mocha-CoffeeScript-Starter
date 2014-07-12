@@ -1,5 +1,4 @@
 {EventEmitter} = require 'events'
-Bacon = require 'baconjs'
 
 class Machine
   constructor: ->
