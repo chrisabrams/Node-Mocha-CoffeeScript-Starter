@@ -1,10 +1,12 @@
 {EventEmitter} = require 'events'
+Unique = require '../src/unique'
+
 ###*
  * A Transition from one state to another
  *
  * @class Machine A state machine
  *
- * h3 Example:
+ * h3 Example:fff
  *
  *```javascript
  *    s1 = new State
@@ -17,8 +19,9 @@
  *    machine.addState done
  *```
 ###
-class Machine
+class Machine extends Unique
   constructor: ->
+    super()
     @emitter = new EventEmitter
     @states = []
     @initialstate = null

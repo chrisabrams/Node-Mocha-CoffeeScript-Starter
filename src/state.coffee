@@ -1,6 +1,7 @@
 {EventEmitter} = require 'events'
+Unique = require '../src/unique'
 
-class State
+class State extends Unique
   constructor: () ->
     @emitter = new EventEmitter
     @initialState = false

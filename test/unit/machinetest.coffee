@@ -10,5 +10,8 @@ describe 'Machine', ->
   it 'should run', ->
     machine = new Machine
     machine.run()
+  it 'should return its uuid', ->
+    machine = new Machine
+    expect(machine.getUuid().toString().length).to.be.equal 36
 
 

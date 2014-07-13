@@ -27,5 +27,8 @@
     "gulp-watch": "^0.6.8",
     "istanbul": "^0.3.0",
     "mocha": "1.8.2"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.1"
   }
 }

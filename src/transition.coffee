@@ -1,4 +1,5 @@
 {EventEmitter} = require 'events'
+Unique = require '../src/unique'
 
 
 ###*
@@ -11,7 +12,7 @@
  *     transition = new Transition
 ###
 
-class Transition
+class Transition extends Unique
   constructor: () ->
     @eventStream = new EventEmitter
 

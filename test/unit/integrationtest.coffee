@@ -6,7 +6,6 @@ expect   = chai.expect
 {StringTransition, Transition} = require '../../src/transition'
 {Machine} = require '../../src/machine'
 
-
 describe 'putting it all together', ->
   it 'should execute the hello world case',(done) ->
     # two states, we need to go from "hello" to "world"
