@@ -23,6 +23,7 @@
     "gulp-coffeelint": "^0.3.3",
     "gulp-ext-replace": "^0.1.0",
     "gulp-markdox": "^0.1.0",
+    "gulp-task-listing": "^0.3.0",
     "gulp-watch": "^0.6.8",
     "istanbul": "^0.3.0",
     "mocha": "1.8.2"
