@@ -16,12 +16,14 @@ describe 'Transition', (done) ->
     t1 = new Transition
     expect(t1.evaluate()).to.be.false
     done()
-
   it 'should  evaluate when  set up ', (done) ->
     t1 = new Transition
     expect(t1.evaluate(-> true)).to.be.true
     done()
-
+  it 'should have a Uuid', (done) ->
+    t1 = new Transition
+    expect(t1.getUuid().toString().length).to.be.equal 36
+    done()
   describe 'StringTransition', ->
     it 'should exist', (done) ->
       expect(StringTransition).to.be.a 'function'

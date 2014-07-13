@@ -14,6 +14,7 @@ Unique = require '../src/unique'
 
 class Transition extends Unique
   constructor: () ->
+    super()
     @eventStream = new EventEmitter
 
   ###*

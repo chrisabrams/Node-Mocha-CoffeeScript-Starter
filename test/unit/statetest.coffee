@@ -16,6 +16,10 @@ describe 'State', ->
     state = new State
     expect(state.isFinal()).to.be.false
     done()
+  it 'has a Uuid', (done) ->
+    state = new State
+    expect(state.getUuid().toString().length).to.be.equal 36
+    done()
   it 'has a enter and OnEnter Method', () ->
     state = new State
     expect(state).to.respondTo 'enter'

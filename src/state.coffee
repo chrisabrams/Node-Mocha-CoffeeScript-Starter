@@ -3,6 +3,7 @@ Unique = require '../src/unique'
 
 class State extends Unique
   constructor: () ->
+    super()
     @emitter = new EventEmitter
     @initialState = false
     @finalState = false
