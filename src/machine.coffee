@@ -6,7 +6,7 @@
  *
  * h3 Example:
  *
- *```
+ *```javascript
  *    s1 = new State
  *    s2 = new State
  *    t1 = new StringTransition 'Hello'
