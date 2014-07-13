@@ -5,14 +5,43 @@ class State
     @emitter = new EventEmitter
     @initialState = false
     @finalState = false
+  ###*
+   * Check if it this is a final state
+   * @method isFinal
+   * @return {Boolean} final Is this final
+  ###
   isFinal: ->
     return @finalState
+  ###*
+   * Check if this is a initial state
+   * @method isInitial
+   * @return {Boolean} final Is this final
+  ###
   isInitial: ->
     return @initialState
+  ###*
+   * Enter this state
+   *
+   * Events
+   * * enter fired when the state is entered
+   * @method enter
+  ###
   enter: ->
     @emitter.emit 'enter'
+  ###*
+   * Add a event handler to the enter method
+   * method onEnter
+  ###
   onEnter:(evt) ->
     @emitter.addListener 'enter', evt
+  ###*
+   * Exit the State
+   *
+   * Events
+   * * exit fired when the state is exited
+   * @method enter
+   * @return {Boolean} final Is this final
+  ###
   exit: ->
     @emitter.emit 'exit'
   onExit:(evt) ->
