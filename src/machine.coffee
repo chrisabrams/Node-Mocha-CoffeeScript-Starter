@@ -6,14 +6,16 @@
  *
  * h3 Example:
  *
- *   s1 = new State
- *   s2 = new State
- *   t1 = new StringTransition 'Hello'
- *   t2 = new StringTransition 'world'
- *   machine = new Machine
- *   machine.addState s1
- *   machine.addState s2
- *   machine.addState done
+ *```
+ *    s1 = new State
+ *    s2 = new State
+ *    t1 = new StringTransition 'Hello'
+ *    t2 = new StringTransition 'world'
+ *    machine = new Machine
+ *    machine.addState s1
+ *    machine.addState s2
+ *    machine.addState done
+ *```
 ###
 class Machine
   constructor: ->
