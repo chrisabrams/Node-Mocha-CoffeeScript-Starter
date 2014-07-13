@@ -21,11 +21,21 @@ gulp.task('doc', function(){
     .pipe(markdox())
     .pipe(gulp.dest("./doc/"));
 
+});
+
+
+gulp.task('doc', function(){
+  gulp.src("./src/*.coffee")
+    .pipe(markdox())
+    .pipe(ext_replace('.md'))
+    .pipe(gulp.dest("./doc/"));
+
+});
+
+gulp.task('rename', function(){
   gulp.src('./doc/*.coffee')
       .pipe(ext_replace('.md'))
       .pipe(gulp.dest('./doc'));
-
-
 });
 
 gulp.task('test', function () {
@@ -35,3 +45,7 @@ gulp.task('test', function () {
 
 
 gulp.task('default', ['lint-src', 'lint-test', 'test']);
+gulp.task('documentation', ['lint-src', 'lint-test', 'doc']);
+
+
+
