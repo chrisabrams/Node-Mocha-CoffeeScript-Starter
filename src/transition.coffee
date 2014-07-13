@@ -24,16 +24,19 @@ class Transition
 
   ###*
    * Evaluate if a state change is possible
-   * @param {Function} cb callback
+   * @parsam {Function} cb callback
    * @event {Event} evt
-   * @return {Boolean} evaled result of cb
+   * @return {Boolean} evaled result of cb or false if no cb was given
   ###
   evaluate: (cb) ->
     ###*
      * the base class just evaluates the given function
      *
     ###
-    return cb()
+    if cb
+      return cb()
+    else
+      false
 
 
 ###*

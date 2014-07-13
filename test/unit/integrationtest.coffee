@@ -9,14 +9,16 @@ expect   = chai.expect
 
 describe 'putting it all together', ->
   it 'should execute the hello world case',(done) ->
-    # two states
+    # two states, we need to go from "hello" to "world"
     s1 = new State
     s2 = new State
+    # and a final state when "world" is reached
+    doneState = new FinalState
     t1 = new StringTransition 'Hello'
     t2 = new StringTransition 'world'
     machine = new Machine
     machine.addState s1
     machine.addState s2
-    machine.addState done
+    machine.addState doneState
     # machine.setInitialState s1
     done()

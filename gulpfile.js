@@ -36,18 +36,15 @@ gulp.task('test', function () {
     return gulp.src('test/unit/*.coffee', {read: false})
         .pipe(mocha({reporter: 'nyan', require: 'coffee-script'}));
 });
-
 // clean all build data
 gulp.task('clean', function() {
   return gulp.src( './doc', { read: false })
     .pipe( rm() );
 });
-
+// watch coffee script files changing
 gulp.task('watch', function() {
-  gulp.watch('./src/*.coffee', ['default']);
+  gulp.watch(['./src/*.coffee', './test/unit/*.coffee'], ['default']);
 });
-
-
 
 gulp.task('default', ['lint-src', 'lint-test', 'test']);
 gulp.task('documentation', ['clean', 'lint-src', 'lint-test', 'doc']);
