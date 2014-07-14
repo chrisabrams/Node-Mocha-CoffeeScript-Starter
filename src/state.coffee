@@ -4,7 +4,6 @@ Unique = require '../src/unique'
 class State extends Unique
   constructor: () ->
     super()
-    @emitter = new EventEmitter
     @initialState = false
     @finalState = false
   ###*
@@ -29,13 +28,13 @@ class State extends Unique
    * @method enter
   ###
   enter: ->
-    @emitter.emit 'enter'
+    this.emit 'enter'
   ###*
    * Add a event handler to the enter method
    * method onEnter
   ###
   onEnter:(evt) ->
-    @emitter.addListener 'enter', evt
+    this.on 'enter', evt
   ###*
    * Exit the State
    *
@@ -45,9 +44,9 @@ class State extends Unique
    * @return {Boolean} final Is this final
   ###
   exit: ->
-    @emitter.emit 'exit'
+    this.emit 'exit'
   onExit:(evt) ->
-    @emitter.addListener 'exit', evt
+    this.on 'exit', evt
   addTransition: (transition) ->
     true
 

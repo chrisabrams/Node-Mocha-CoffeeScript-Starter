@@ -32,7 +32,7 @@ class Transition extends Unique
   ###
   evaluate: (cb) ->
     # emits a event
-    this.emit 'transition'
+    this.emit 'transition', {uuid: @uuid}
     ###*
      * the base class just evaluates the given function
     ###
@@ -58,7 +58,7 @@ class StringTransition extends Transition
    * @param {String} param string to check
   ###
   evaluate:(param) ->
-    this.emit 'transition'
+    this.emit 'transition', {uuid: @uuid}
     return param == @string
 
 module.exports.Transition = Transition
