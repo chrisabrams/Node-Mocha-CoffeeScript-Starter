@@ -29,12 +29,6 @@ class State extends Unique
   enter: ->
     this.emit 'enter'
   ###*
-   * Add a event handler to the enter method
-   * method onEnter
-  ###
-  onEnter:(evt) ->
-    this.on 'enter', evt
-  ###*
    * Exit the State
    *
    * Events

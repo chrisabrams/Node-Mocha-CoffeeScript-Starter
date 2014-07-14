@@ -20,16 +20,12 @@ describe 'State', ->
     state = new State
     expect(state.getUuid().toString().length).to.be.equal 36
     done()
-  it 'has a enter and OnEnter Method', () ->
-    state = new State
-    expect(state).to.respondTo 'enter'
-    expect(state).to.respondTo 'onEnter'
   it 'sends a enter evt', (done) ->
     state = new State
     cb = (bar) ->
       done()
     # use a event on enter so that others can listen to it
-    state.onEnter cb
+    state.on 'enter', cb
     # enter the state, test fails with a timeout if done is not called
     state.enter()
   it 'sends a exit evt', (done) ->

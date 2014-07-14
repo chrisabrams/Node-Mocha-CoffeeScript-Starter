@@ -29,6 +29,7 @@ class Machine extends Unique
    * @method addState
   ###
   addState: (state) ->
+    # assign the state to a internal var
     stateId = state.getUuid()
     @states[stateId] = state
 
