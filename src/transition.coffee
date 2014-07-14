@@ -31,9 +31,10 @@ class Transition extends Unique
    * @return {Boolean} evaled result of cb or false if no cb was given
   ###
   evaluate: (cb) ->
+    # emits a event
+    this.emit 'transition'
     ###*
      * the base class just evaluates the given function
-     *
     ###
     if cb
       return cb()
@@ -57,7 +58,7 @@ class StringTransition extends Transition
    * @param {String} param string to check
   ###
   evaluate:(param) ->
-    # @example foo
+    this.emit 'transition'
     return param == @string
 
 module.exports.Transition = Transition

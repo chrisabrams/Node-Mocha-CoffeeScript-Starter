@@ -24,6 +24,8 @@ describe 'Transition', (done) ->
     t1 = new Transition
     expect(t1.getUuid().toString().length).to.be.equal 36
     done()
+
+
   describe 'StringTransition', ->
     it 'should exist', (done) ->
       expect(StringTransition).to.be.a 'function'
@@ -39,7 +41,10 @@ describe 'Transition', (done) ->
       t1 = new StringTransition 'Hello'
       expect(t1.evaluate 'Foo').to.be.false
       done()
-    it.skip 'should fire a triggered when evaluate is triggered', (done) ->
-
+    it 'should fire a triggered when evaluate is triggered', (done) ->
+      t1 = new StringTransition 'Foo'
+      t1.on 'transition', ->
+        done()
+      expect(t1.evaluate('Foo')).to.be.true
     it.skip 'should fire a transition event when it is doing one', (done) ->
 
