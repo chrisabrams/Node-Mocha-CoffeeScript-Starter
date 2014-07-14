@@ -39,4 +39,7 @@ describe 'Transition', (done) ->
       t1 = new StringTransition 'Hello'
       expect(t1.evaluate 'Foo').to.be.false
       done()
+    it.skip 'should fire a triggered when evaluate is triggered', (done) ->
+
+    it.skip 'should fire a transition event when it is doing one', (done) ->
 
