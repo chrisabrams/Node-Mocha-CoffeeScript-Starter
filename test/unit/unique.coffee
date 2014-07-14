@@ -1,2 +1,0 @@
-unique = require '../../src/unique'
-
