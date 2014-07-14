@@ -19,5 +19,5 @@ describe 'putting it all together', ->
     machine.addState s1
     machine.addState s2
     machine.addState doneState
-    # machine.setInitialState s1
+    machine.setInitialState s1
     done()

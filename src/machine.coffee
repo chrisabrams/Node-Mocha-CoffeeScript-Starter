@@ -21,7 +21,7 @@ Unique = require '../src/unique'
 class Machine extends Unique
   constructor: ->
     super()
-    @states = []
+    @states = {}
     @initialstate = null
 
   ###*
@@ -29,7 +29,8 @@ class Machine extends Unique
    * @method addState
   ###
   addState: (state) ->
-    @states.push state
+    stateId = state.getUuid()
+    @states[stateId] = state
 
   ###*
    * Set the initial state for the state machine
@@ -43,7 +44,8 @@ class Machine extends Unique
    * * started
   ###
   run: () ->
-    this.emit 'started'
+    this.emit 'started', {states: Object.keys @states}
+    true
   ###*
    * Stop this state machine
    * @method stop
