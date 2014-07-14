@@ -1,4 +1,3 @@
-{EventEmitter} = require 'events'
 Unique = require '../src/unique'
 
 class State extends Unique

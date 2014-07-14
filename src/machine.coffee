@@ -1,4 +1,3 @@
-{EventEmitter} = require 'events'
 Unique = require '../src/unique'
 
 ###*
@@ -22,7 +21,6 @@ Unique = require '../src/unique'
 class Machine extends Unique
   constructor: ->
     super()
-    @emitter = new EventEmitter
     @states = []
     @initialstate = null
 
@@ -45,7 +43,7 @@ class Machine extends Unique
    * * started
   ###
   run: () ->
-    @emitter.emit 'started'
+    this.emit 'started'
   ###*
    * Stop this state machine
    * @method stop
@@ -53,7 +51,7 @@ class Machine extends Unique
    * * stopped
   ###
   stop: () ->
-    @emitter.emit 'stopped'
+    this.emit 'stopped'
 
 
 module.exports.Machine = Machine
