@@ -2,12 +2,12 @@ __base   = process.cwd()
 chai     = require 'chai'
 expect   = chai.expect
 {Machine} = require '../../src/machine'
-{State} = require '../../src/state'
+{InitialState, State} = require '../../src/state'
 
 describe 'Machine', ->
   beforeEach  ->
     @machine = new Machine
-    @machine.setInitialState(new State)
+    @machine.setInitialState(new InitialState)
   it 'should instantiate', ->
     expect(@machine).to.be.a.object
   it 'should run', ->
@@ -26,4 +26,3 @@ describe 'Machine', ->
   it 'should throw when run() is called and no  state is set', () ->
     machine = new Machine
     expect(-> machine.run()).to.throw 'E_INITIAL_STATE'
-

@@ -5,6 +5,7 @@ class State extends Unique
     super()
     @initialState = false
     @finalState = false
+    @tansitions = {}
   ###*
    * Check if it this is a final state
    * @method isFinal
@@ -27,7 +28,8 @@ class State extends Unique
    * @method enter
   ###
   enter: ->
-    this.emit 'enter'
+    @emit 'enter'
+    true
   ###*
    * Exit the State
    *
@@ -37,8 +39,10 @@ class State extends Unique
    * @return {Boolean} final Is this final
   ###
   exit: ->
-    this.emit 'exit'
+    @emit 'exit'
   addTransition: (transition) ->
+    transitionId = transition.getUuid()
+    @tansitions[transitionId] = transition
     true
 
 class FinalState extends State
