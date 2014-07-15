@@ -1,21 +1,22 @@
 Unique = require '../src/unique'
 
 ###*
- * A Transition from one state to another
+ * A state machine
  *
  * @class Machine A state machine
  *
  * h3 Example:fff
  *
- *```javascript
- *    s1 = new State
- *    s2 = new State
- *    t1 = new StringTransition 'Hello'
- *    t2 = new StringTransition 'world'
- *    machine = new Machine
- *    machine.addState s1
- *    machine.addState s2
- *    machine.addState done
+ *```
+ *  javascript
+ *  s1 = new State
+ *  s2 = new State
+ *  t1 = new StringTransition 'Hello'
+ *  t2 = new StringTransition 'world'
+ *  machine = new Machine
+ *  machine.addState s1
+ *  machine.addState s2
+ *  machine.addState done
  *```
 ###
 class Machine extends Unique
@@ -29,22 +30,24 @@ class Machine extends Unique
    * @method addState
   ###
   addState: (state) ->
-    state.on 'enter', (evt)->
-      @emit 'state:enter', evt
+    @emit 'state_added', {uuid: state.getUuid() }
     # assign the state to a internal var
-    stateId = state.getUuid
+    stateId = state.getUuid()
     @states[stateId] = state
 
   ###*
    * Set the initial state for the state machine
    * @method setInitialState
   ###
-  setInitialState: (@initialState) ->
+  setInitialState: (initialState) ->
+    uuid = initialState.getUuid()
+    @addState initialState
+    @initialState = uuid
   ###*
    * Start the state machine and trigger the initial state
-   * method run
-   * h3 Events
    * * started
+   *
+   * @method run
   ###
   run: () ->
     if (!@initialState)
@@ -53,16 +56,15 @@ class Machine extends Unique
     @emit 'started', evt
     # a first attempt to exit this state by firing the exit method
     # this will trigger the mechanism a first time
-    res = @initialState.exit
+    state = @states[@initialState]
     true
   ###*
    * Stop this state machine
    * @method stop
-   * h3 Events
+   * Events
    * * stopped
   ###
   stop: () ->
     this.emit 'stopped'
-
 
 module.exports.Machine = Machine

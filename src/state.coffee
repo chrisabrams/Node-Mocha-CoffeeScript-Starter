@@ -1,5 +1,14 @@
 Unique = require '../src/unique'
-
+###*
+ * A State
+ *
+ * @class State
+ *
+ * h3 Example:
+ *
+ *     state = new State
+ *     state.addTransition new Transition
+###
 class State extends Unique
   constructor: () ->
     super()
@@ -40,10 +49,21 @@ class State extends Unique
   ###
   exit: ->
     @emit 'exit'
+  ###*
+   * Add a transition
+   *
+   * .h3 Events
+   * * transition_add fired when the transition is addeed
+   * @method addTransition
+   * @return {Boolean}
+  ###
   addTransition: (transition) ->
     transitionId = transition.getUuid()
     @tansitions[transitionId] = transition
     true
+  removeTransition: (transition) ->
+    transitionId = transition.getUuid()
+    delete @tansitions[transitionId]
 
 class FinalState extends State
   constructor: () ->
