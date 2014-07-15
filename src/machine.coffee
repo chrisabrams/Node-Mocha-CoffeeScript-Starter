@@ -22,13 +22,16 @@ class Machine extends Unique
   constructor: ->
     super()
     @states = {}
-    @initialstate = null
+    @initialState = null
 
   ###*
    * Add a State to the state machine
    * @method addState
   ###
   addState: (state) ->
+    console.log 'addState'
+    state.on 'enter', (evt)->
+      @emit 'state:enter', evt
     # assign the state to a internal var
     stateId = state.getUuid()
     @states[stateId] = state
@@ -37,7 +40,7 @@ class Machine extends Unique
    * Set the initial state for the state machine
    * @method setInitialState
   ###
-  setInitialState: (@initialstate) ->
+  setInitialState: (@initialState) ->
   ###*
    * Start the state machine and trigger the initial state
    * method run
@@ -46,6 +49,10 @@ class Machine extends Unique
   ###
   run: () ->
     this.emit 'started', {states: Object.keys @states}
+    if (!@initialState)
+      throw new Error 'E_INITIAL_STATE'
+
+    @initialState.enter()
     true
   ###*
    * Stop this state machine

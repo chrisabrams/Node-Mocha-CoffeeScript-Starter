@@ -20,4 +20,5 @@ describe 'putting it all together', ->
     machine.addState s2
     machine.addState doneState
     machine.setInitialState s1
+    machine.run()
     done()

@@ -38,8 +38,6 @@ class State extends Unique
   ###
   exit: ->
     this.emit 'exit'
-  onExit:(evt) ->
-    this.on 'exit', evt
   addTransition: (transition) ->
     true
 

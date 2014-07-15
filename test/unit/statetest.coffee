@@ -33,7 +33,7 @@ describe 'State', ->
     cb = (bar) ->
       done()
     # use a event on enter so that others can listen to it
-    state.onExit cb
+    state.on 'exit', cb
     # enter the state, test fails with a timeout if done is not called
     state.exit()
   it 'adds a transition', ->

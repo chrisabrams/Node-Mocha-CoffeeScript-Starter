@@ -2,25 +2,28 @@ __base   = process.cwd()
 chai     = require 'chai'
 expect   = chai.expect
 {Machine} = require '../../src/machine'
+{State} = require '../../src/state'
 
 describe 'Machine', ->
+  beforeEach  ->
+    @machine = new Machine
+    @machine.setInitialState(new State)
   it 'should instantiate', ->
-    machine = new Machine
-    expect(machine).to.be.a.object
+    expect(@machine).to.be.a.object
   it 'should run', ->
-    machine = new Machine
-    expect(machine.run()).to.be.true
+    expect(@machine.run()).to.be.true
   it 'should trigger an event when run', (done) ->
-    machine = new Machine
-    machine.on 'started', ->
+    @machine.on 'started', ->
       done()
-    machine.run()
+    @machine.run()
   it 'should send the states as event data', (done) ->
-    machine = new Machine
-    machine.on 'started', (evt) ->
+    @machine.on 'started', (evt) ->
       expect(evt.states).to.be.a.array
       done()
-    machine.run()
+    @machine.run()
   it 'should return its uuid', ->
+    expect(@machine.getUuid().toString().length).to.be.equal 36
+  it 'should throw when run() is called and no  state is set', () ->
     machine = new Machine
-    expect(machine.getUuid().toString().length).to.be.equal 36
+    expect(-> machine.run()).to.throw 'E_INITIAL_STATE'
+
