@@ -39,7 +39,11 @@ describe 'State', ->
   it 'adds a transition', ->
     state = new State
     stateTo = new State
-    expect(state.addTransition(stateTo)).to.be.true
+    expect(state.addTransition(new Transition)).to.be.true
+  it 'adds a transition', ->
+    state = new State
+    stateTo = new State
+    expect(state.removeTransition(stateTo)).to.be.true
 
 describe 'Final State', ->
   it 'should be final', (done) ->
