@@ -5,7 +5,7 @@ Unique = require '../src/unique'
  *
  * @class Machine A state machine
  *
- * h3 Example:fff
+ * .h3 Example:fff
  *
  *```
  *  javascript
@@ -21,8 +21,11 @@ Unique = require '../src/unique'
 ###
 class Machine extends Unique
   constructor: ->
+    # inherit all the good that Unique gave us
     super()
+    # store the sttes in this
     @states = {}
+    # the initial state Id
     @initialState = undefined
 
   ###*
@@ -30,8 +33,10 @@ class Machine extends Unique
    * @method addState
   ###
   addState: (state) ->
+    # emit a eveent when a state is added.
+    # This avoids the need to extend addState
     @emit 'state_added', {uuid: state.getUuid() }
-    # assign the state to a internal var
+    # we need to get the ID frim the state so that we can store stuff
     stateId = state.getUuid()
     @states[stateId] = state
 
@@ -40,8 +45,11 @@ class Machine extends Unique
    * @method setInitialState
   ###
   setInitialState: (initialState) ->
+    # we need to get the ID frim the state so that we can store stuff
     uuid = initialState.getUuid()
+    # add the state if this has not yet happened
     @addState initialState
+    # set the uuid
     @initialState = uuid
   ###*
    * Start the state machine and trigger the initial state
@@ -52,7 +60,15 @@ class Machine extends Unique
   run: () ->
     if (!@initialState)
       throw new Error 'E_INITIAL_STATE'
-    evt = {states: Object.keys @states}
+      ###*
+       *
+       * h3. Example:fff
+       *
+       *```
+       *  machine.on -> true
+       *```
+      ###
+    evt = {states: Object.keys @states }
     @emit 'started', evt
     # a first attempt to exit this state by firing the exit method
     # this will trigger the mechanism a first time
@@ -66,5 +82,4 @@ class Machine extends Unique
   ###
   stop: () ->
     this.emit 'stopped'
-
 module.exports.Machine = Machine
