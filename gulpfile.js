@@ -46,5 +46,5 @@ gulp.task('watch', function() {
   gulp.watch(['./src/*.coffee', './test/unit/*.coffee'], ['default']);
 });
 
-gulp.task('default', ['lint-src', 'lint-test', 'test']);
+gulp.task('default', ['lint-src', 'lint-test', 'test', 'doc']);
 gulp.task('documentation', ['clean', 'lint-src', 'lint-test', 'doc']);

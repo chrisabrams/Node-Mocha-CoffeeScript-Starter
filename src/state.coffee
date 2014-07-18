@@ -65,19 +65,57 @@ class State extends Unique
     transitionId = transition.getUuid()
     delete @tansitions[transitionId]
 
+###*
+ * A final state. This is the end of a fsm process
+ * It can not transition to another state
+ *
+ * @class FinalState
+ *
+ * h3 Example:
+ *
+ *     state = new FinalState
+###
 class FinalState extends State
   constructor: () ->
     super()
     @initialState = false
     @finalState = true
+  ###*
+   * Exit the state
+   * This methdod throws an exception. A final State is
+   * final and does not need to be exited aka transitioned
+   * to another state
+   *
+   * @method enter
+   * @throws E_EXIT
+  ###
   exit: () ->
     throw new Error 'E_EXIT'
 
+###*
+ * A initial state. This is the end of a fsm process
+ *
+ * @class InitialState
+ *
+ * h3 Example:
+ *
+ *     state = new InitialState
+ *     state.addTransition new Tansition
+###
 class InitialState extends State
   constructor: () ->
     super()
     @initialState = true
     @finalState = false
+  ###*
+   * Enter the state
+   * This methdod throws an exception. A initial State is
+   * initial and does not need to be entered aka transitioned
+   * to
+   *
+   * @method enter
+   * @throws E_ENTER
+  ###
   enter: () ->
     throw new Error 'E_ENTER'
 
