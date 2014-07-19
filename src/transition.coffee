@@ -19,20 +19,21 @@ class Transition extends Unique
 
   ###*
    * Set a target state. It will be returned upon transition or sent via a event
-   * method setTargetState
+   * @method setTargetState
+   * @param {Object} targetstate State to transition to
+   * @param {Function} evl Method to be eval'ed to check if transition is ok
   ###
   setTargetState: (@targetState, @evl) ->
     true
 
   ###*
    * Evaluate if a state change is possible
-   * @parsam {Function} cb callback
-   * @event {Event} evt
+   * @param {Function} cb callback
    * @return {Boolean} evaled result of cb or false if no cb was given
   ###
-  evaluate: (cb) ->
+  trigger: (cb) ->
     # emits a event
-    this.emit 'transition', {uuid: @uuid}
+    this.emit 'triggered', {uuid: @uuid}
     ###*
      * the base class just evaluates the given function
     ###
@@ -55,10 +56,11 @@ class StringTransition extends Transition
 
   ###*
    * Evaluate the given param with the internal string
+   * @method trigger
    * @param {String} param string to check
   ###
-  evaluate:(param) ->
-    this.emit 'transition', {uuid: @uuid}
+  trigger:(param) ->
+    this.emit 'triggered', {uuid: @uuid}
     return param == @string
 
 module.exports.Transition = Transition

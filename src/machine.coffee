@@ -5,7 +5,7 @@ Unique = require '../src/unique'
  *
  * @class Machine A state machine
  *
- * .h3 Example:fff
+ * .h3 Example
  *
  *```
  *  javascript

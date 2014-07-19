@@ -12,23 +12,23 @@ describe 'Transition', (done) ->
   it 'should instantiate', (done) ->
     expect(new Transition).to.be.a 'object'
     done()
-  it 'should not evaluate when not set up ', (done) ->
+  it 'should not trigger when not set up ', (done) ->
     t1 = new Transition
-    expect(t1.evaluate()).to.be.false
+    expect(t1.trigger()).to.be.false
     done()
-  it 'should  evaluate when  set up ', (done) ->
+  it 'should trigger when set up ', (done) ->
     t1 = new Transition
-    expect(t1.evaluate(-> true)).to.be.true
+    expect(t1.trigger(-> true)).to.be.true
     done()
   it 'should have a Uuid', (done) ->
     t1 = new Transition
     expect(t1.getUuid().toString().length).to.be.equal 36
     done()
-  it 'should fire a triggered when evaluate is triggered', (done) ->
+  it 'should fire a triggered when trigger is executed', (done) ->
     t1 = new Transition
-    t1.on 'transition', ->
+    t1.on 'triggered', ->
       done()
-    expect(t1.evaluate( -> true)).to.be.true
+    expect(t1.trigger( -> true)).to.be.true
 
 
   describe 'StringTransition', ->
@@ -38,17 +38,17 @@ describe 'Transition', (done) ->
     it 'should create an instance', (done) ->
       expect(new StringTransition).to.be.a 'object'
       done()
-    it 'evaluate successfully with correct input', (done) ->
+    it 'trigger successfully with correct input', (done) ->
       t1 = new StringTransition 'Hello'
-      expect(t1.evaluate 'Hello').to.be.true
+      expect(t1.trigger 'Hello').to.be.true
       done()
-    it 'dont evaluate with wrong input', (done) ->
+    it 'dont trigger with wrong input', (done) ->
       t1 = new StringTransition 'Hello'
-      expect(t1.evaluate 'Foo').to.be.false
+      expect(t1.trigger 'Foo').to.be.false
       done()
-    it 'should fire a triggered when evaluate is triggered', (done) ->
+    it 'should fire a transition when trigegr is executed', (done) ->
       t1 = new StringTransition 'Foo'
-      t1.on 'transition', ->
+      t1.on 'triggered', ->
         done()
-      expect(t1.evaluate('Foo')).to.be.true
+      expect(t1.trigger('Foo')).to.be.true
     it.skip 'should fire a transition event when it is doing one', (done) ->

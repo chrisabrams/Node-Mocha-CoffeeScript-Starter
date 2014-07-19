@@ -5,7 +5,6 @@ var mocha = require("gulp-mocha");
 var ext_replace = require("gulp-ext-replace");
 var rm = require( 'gulp-rm' );
 var watch = require('gulp-watch');
-
 var taskListing = require('gulp-task-listing');
 
 // Add a task to render the output
@@ -26,10 +25,10 @@ gulp.task('lint-test', function () {
 });
 // write the api docs
 gulp.task('doc', function(){
-  gulp.src("./src/*.coffee")
+  gulp.src('./src/*.coffee')
     .pipe(markdox())
     .pipe(ext_replace('.md'))
-    .pipe(gulp.dest("./doc/"));
+    .pipe(gulp.dest('./doc/'));
 });
 // run tests
 gulp.task('test', function () {
