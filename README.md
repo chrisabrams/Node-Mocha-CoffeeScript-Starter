@@ -3,6 +3,10 @@ Attempt to implement a finite state machine for node in coffeescript
 
 [![Build Status](https://travis-ci.org/sebs/coffee-fsm.svg)](https://travis-ci.org/sebs/coffee-fsm)
 
+
+[foo](doc/state.md)
+
+
 ## Example
 
 ```coffeescript
