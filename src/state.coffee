@@ -97,7 +97,7 @@ class FinalState extends State
  *
  * @class InitialState
  *
- * h3 Example:
+ * .h3 Example:
  *
  *     state = new InitialState
  *     state.addTransition new Tansition

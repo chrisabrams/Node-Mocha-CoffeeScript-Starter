@@ -15,8 +15,6 @@ Unique = require '../src/unique'
 class Transition extends Unique
   constructor: () ->
     super()
-    @eventStream = new EventEmitter
-
   ###*
    * Set a target state. It will be returned upon transition or sent via a event
    * @method setTargetState
@@ -24,7 +22,7 @@ class Transition extends Unique
    * @param {Function} evl Method to be eval'ed to check if transition is ok
   ###
   setTargetState: (@targetState, @evl) ->
-    true
+    @stargetState
 
   ###*
    * Evaluate if a state change is possible
@@ -38,6 +36,8 @@ class Transition extends Unique
      * the base class just evaluates the given function
     ###
     if cb
+      transitionEvaluationResult = cb()
+      this.emit 'transition', {uuid: @uuid, result: transitionEvaluationResult}
       return cb()
     else
       false
@@ -63,5 +63,19 @@ class StringTransition extends Transition
     this.emit 'triggered', {uuid: @uuid}
     return param == @string
 
+class EventTransition extends Transition
+  constructor: ->
+    super()
+  setTargetState: (@targetState, @obj, @ebentName) ->
+
+
+
+
+
 module.exports.Transition = Transition
 module.exports.StringTransition = StringTransition
+module.exports.EventTransition = EventTransition
+
+
+
+

@@ -71,7 +71,7 @@ final and does not need to be exited aka transitioned
 to another state
 
 ## InitialState 
-h3 Example:
+.h3 Example:
 
     state = new InitialState
     state.addTransition new Tansition

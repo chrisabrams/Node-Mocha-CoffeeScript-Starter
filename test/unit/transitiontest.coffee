@@ -3,7 +3,7 @@ chai     = require 'chai'
 expect   = chai.expect
 
 {State, FinalState, InitialState} = require '../../src/state'
-{Transition, StringTransition} = require '../../src/transition'
+{Transition, EventTransition, StringTransition} = require '../../src/transition'
 
 describe 'Transition', (done) ->
   it 'should exist', (done) ->
@@ -29,6 +29,16 @@ describe 'Transition', (done) ->
     t1.on 'triggered', ->
       done()
     expect(t1.trigger( -> true)).to.be.true
+  it 'should fire a transition event when it is doing one', (done) ->
+    t1 = new Transition
+    t1.on 'transition', ->
+      done()
+    expect(t1.trigger( -> true)).to.be.true
+  it 'should fire a transition event when it is doing one', (done) ->
+    t1 = new Transition
+    t1.on 'transition', ->
+      done()
+    expect(t1.trigger( -> true)).to.be.true
 
 
   describe 'StringTransition', ->
@@ -46,9 +56,16 @@ describe 'Transition', (done) ->
       t1 = new StringTransition 'Hello'
       expect(t1.trigger 'Foo').to.be.false
       done()
-    it 'should fire a transition when trigegr is executed', (done) ->
+    it 'should fire a transition when trigger is executed', (done) ->
       t1 = new StringTransition 'Foo'
       t1.on 'triggered', ->
         done()
       expect(t1.trigger('Foo')).to.be.true
-    it.skip 'should fire a transition event when it is doing one', (done) ->
+
+
+  describe 'EventTransition', ->
+    it 'should exist', ->
+      expect(EventTransition).to.be.a 'function'
+
+
+
