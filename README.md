@@ -1,18 +1,72 @@
-# Node, Mocha, CoffeeScript Starter
-A simple example to test CoffeeScript server-side with Node.js and Mocha. Uses Chai and Expect.js.
+# A simple finite state machine
+Attempt to implement a finite state machine for node in coffeescript
 
-## Getting Started
+[![Build Status](https://travis-ci.org/sebs/coffee-fsm.svg)](https://travis-ci.org/sebs/coffee-fsm)
+
+
+[foo](doc/state.md)
+
+
+## Example
+
+```coffeescript
+s1 = new State
+s2 = new State
+t1 = new StringTransition 'Hello'
+t2 = new StringTransition 'world'
+machine = new Machine
+machine.addState s1
+machine.addState s2
+machine.addState done
+```
+
+## Example 2
+
+![Linux Process](images/linuxprocess.png "A typical linux process")
+
+A unix process
+
+* R	Running or runnable (on run queue)
+* D	Uninterruptible sleep (waiting for some event)
+* S	Interruptible sleep (waiting for some event or signal)
+* T	Stopped, either by a job control signal or because it is being traced by a debugger.
+* Z	Zombie process, terminated but not yet reaped by its parent.
+
+
+# Installation, Development and Testing
+
+# Installation
 You will need Node.js and CoffeeScript to begin. Then:
 
-    npm install
+```shell
+npm install
+```
+## Run Tests
+```shell
+npm test
+```
+Used for testing:
 
-## To run tests
+* Node.js
+* Mocha
+* Chai
+* Expect.js.
 
-    cake test
+## Lint
 
-## Test files
+Lint the tests
+```shell
+gulp lint-test
+```
 
-### Adding files
-To add a new file to the test, place them in `test/unit` and name them `YOURFILENAME.coffee`. Mocha runs tests in alphabetical order of file name by default.
+Lint the source
+```shell
+gulp lint-test
+```
+## Generate API docs
 
-To decide what/where files should be included in the test, edit `test/helper.coffee`
+Api docs as markdown files
+```shell
+gulp doc
+```
+
