@@ -1,4 +1,5 @@
 Unique = require '../src/unique'
+Bacon = require 'baconjs'
 
 ###*
  * A state machine
@@ -27,6 +28,7 @@ class Machine extends Unique
     @states = {}
     # the initial state Id
     @initialState = undefined
+    @stream = Bacon.fromEventTarget this, 'stat'
 
   ###*
    * Add a State to the state machine
@@ -35,11 +37,19 @@ class Machine extends Unique
   addState: (state) ->
     # emit a eveent when a state is added.
     # This avoids the need to extend addState
-    @emit 'state_added', {uuid: state.getUuid() }
+    @emit 'state_added', {
+      uuid: state.getUuid()
+      event: 'state_added'
+    }
     # we need to get the ID frim the state so that we can store stuff
     stateId = state.getUuid()
     @states[stateId] = state
-
+    # subscribe the stream of the event to the bus
+    # so wen can listen to everything on one bus
+    stateStream = state.getStream()
+    @stream.merge stateStream
+    @stream.onValue (value) ->
+      console.log value
   ###*
    * Set the initial state for the state machine
    * @method setInitialState
@@ -68,7 +78,7 @@ class Machine extends Unique
        *  machine.on -> true
        *```
       ###
-    evt = {states: Object.keys @states }
+    evt = { states: Object.keys @states }
     @emit 'started', evt
     # a first attempt to exit this state by firing the exit method
     # this will trigger the mechanism a first time

@@ -11,7 +11,6 @@ Unique = require '../src/unique'
  *
  *     transition = new Transition
 ###
-
 class Transition extends Unique
   constructor: () ->
     super()
@@ -22,7 +21,7 @@ class Transition extends Unique
    * @param {Function} evl Method to be eval'ed to check if transition is ok
   ###
   setTargetState: (@targetState, @evl) ->
-    @stargetState
+    @targetState
 
   ###*
    * Evaluate if a state change is possible
@@ -69,13 +68,6 @@ class EventTransition extends Transition
   setTargetState: (@targetState, @obj, @ebentName) ->
 
 
-
-
-
 module.exports.Transition = Transition
 module.exports.StringTransition = StringTransition
 module.exports.EventTransition = EventTransition
-
-
-
-

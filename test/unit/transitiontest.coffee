@@ -40,7 +40,7 @@ describe 'Transition', (done) ->
       done()
     expect(t1.trigger( -> true)).to.be.true
 
-
+#more docs
   describe 'StringTransition', ->
     it 'should exist', (done) ->
       expect(StringTransition).to.be.a 'function'
@@ -61,7 +61,6 @@ describe 'Transition', (done) ->
       t1.on 'triggered', ->
         done()
       expect(t1.trigger('Foo')).to.be.true
-
 
   describe 'EventTransition', ->
     it 'should exist', ->

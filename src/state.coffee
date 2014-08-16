@@ -1,4 +1,5 @@
 Unique = require '../src/unique'
+Bacon = require 'baconjs'
 ###*
  * A State
  *
@@ -15,6 +16,18 @@ class State extends Unique
     @initialState = false
     @finalState = false
     @tansitions = {}
+    streamEnter = Bacon.fromEventTarget this, 'enter'
+    @stream = Bacon.fromEventTarget this, 'exit'
+    @stream.merge streamEnter
+
+
+  ###*
+   * Returns a bacon strea
+   * @method getStream
+   * @return {BaconStream} Stream of events
+  ###
+  getStream: ->
+    return @stream
   ###*
    * Check if it this is a final state
    * @method isFinal

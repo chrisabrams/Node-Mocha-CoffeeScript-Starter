@@ -10,6 +10,14 @@ h3 Example:
 
 A State
 
+## getStream()
+
+Returns a bacon strea
+
+### Return:
+
+* **BaconStream** Stream of events
+
 ## isFinal()
 
 Check if it this is a final state

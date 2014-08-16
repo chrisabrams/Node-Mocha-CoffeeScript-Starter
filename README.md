@@ -20,6 +20,19 @@ machine.addState s2
 machine.addState done
 ```
 
+## Example 2
+
+![Linux Process](images/linuxprocess.png "A typical linux process")
+
+A unix process
+
+* R	Running or runnable (on run queue)
+* D	Uninterruptible sleep (waiting for some event)
+* S	Interruptible sleep (waiting for some event or signal)
+* T	Stopped, either by a job control signal or because it is being traced by a debugger.
+* Z	Zombie process, terminated but not yet reaped by its parent.
+
+
 # Installation, Development and Testing
 
 # Installation
