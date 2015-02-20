@@ -5,6 +5,9 @@
   "description": "A simple example to test CoffeeScript server-side with Node.js and Mocha.",
   "version": "0.0.1",
   "homepage": "",
+  "scripts": {
+    "test": "cake test"
+  },
   "repository": {
     "type": "git",
     "url": ""
@@ -12,8 +15,8 @@
   "engines": {
     "node": ">=0.8"
   },
-
   "devDependencies": {
+    "chai": "^2.0.0",
     "coffee-script": "1.6.2",
     "expect.js": "0.2.0",
     "mocha": "1.8.2"
